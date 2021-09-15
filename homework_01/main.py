@@ -23,13 +23,13 @@ def is_odd(x):
     return x%2 != 0
 def is_even(x):
     return x%2 == 0
-def is_prime( number):
+def is_prime(number):
     if number <= 1: return False
     if number == 2: return True
     if (number % 2) == 0:return False
-    boundary = math.floor(math.sqrt(number));
+    boundary = math.ceil(math.sqrt(number));
 
-    for i in range(boundary+1,2):
+    for i in range(2, boundary):
         if (number % i) == 0:
             return False
     return True
