@@ -46,8 +46,8 @@ def filter_numbers(my_list, my_type):
     <<< [2, 4]
     """
     if my_type == "odd":
-        return [filter(is_odd, my_list)]
+        return list(filter(is_odd, my_list))
     elif my_type == "even":
-        return [filter(is_even, my_list)]
+        return list(filter(is_even, my_list))
     elif my_type == "prime":
-        return [filter(is_prime, my_list)]
+        return list(filter(is_prime, my_list))
