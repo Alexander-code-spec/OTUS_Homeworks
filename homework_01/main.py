@@ -2,7 +2,7 @@
 Домашнее задание №1
 Функции и структуры данных
 """
-
+import math
 
 def power_numbers(numbers):
     """
@@ -34,7 +34,7 @@ def is_prime( number):
             return False
     return True
 
-def filter_numbers():
+def filter_numbers(my_list, my_type):
     """
     функция, которая на вход принимает список из целых чисел,
     и возвращает только чётные/нечётные/простые числа
