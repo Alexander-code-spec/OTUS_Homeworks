@@ -26,7 +26,7 @@ def is_even(x):
 def is_prime(number):
     if number <= 1: return False
     if number == 2: return True
-    if (number % 2) == 0:return False
+    if (number % 2) == 0 or (number % 3) == 0:return False
     boundary = math.ceil(math.sqrt(number))
     for i in range(2, boundary):
         if (number % i) == 0:
