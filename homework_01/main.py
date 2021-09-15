@@ -20,9 +20,9 @@ EVEN = "even"
 PRIME = "prime"
 
 def is_odd(x):
-    return True if (x%2 != 0) else False
+    return x%2 != 0
 def is_even(x):
-    return not is_odd(x)
+    return x%2 == 0
 def is_prime( number):
     if number <= 1: return False
     if number == 2: return True
