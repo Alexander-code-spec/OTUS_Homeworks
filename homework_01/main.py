@@ -31,7 +31,7 @@ def is_prime(number):
     d = 2
     while number % d != 0:
         d += 1
-    return d == n
+    return d == number
 
 def filter_numbers(my_list, my_type):
     """
