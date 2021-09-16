@@ -11,6 +11,7 @@ def power_numbers(*numbers):
     >> power_numbers(1, 2, 5, 7)
     <<< [1, 4, 25, 49]
     """
+    # Списковым включение набираем квадраты чисел и вызвращаем
     return [number * number for number in numbers]
 
 
@@ -19,19 +20,18 @@ ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
 
+# Проверка на нечетное
 def is_odd(x):
     return x%2 != 0
+# Проверка на четное
 def is_even(x):
     return x%2 == 0
+# Проверка простое число или нет (линейный перебор), возможна оптимизация?
 def is_prime(number):
-    if number <= 1: return False
-    if number == 2: return True
-    if (number % 2) == 0 or (number % 3) == 0:return False
-    boundary = math.ceil(math.sqrt(number))
-    for i in range(2, boundary):
-        if (number % i) == 0:
-            return False
-    return True
+    d = 2
+    while number % d != 0:
+        d += 1
+    return d == n
 
 def filter_numbers(my_list, my_type):
     """
