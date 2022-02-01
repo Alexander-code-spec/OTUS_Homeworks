@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail
+{% endblock %}
+{% block body %}
+    <h2>Информация по поставщику</h2>
+    <div class="detail-list">
+        <ul>
+                <li>
+                  {{ furnituresupplier.name }}
+                </li>
+                <li>
+                    {{ furnituresupplier.email }}
+                </li>
+                <li>
+                    {{ furnituresupplier.address }}
+                </li>
+        </ul>
+        <a href="{% url 'furniture:list' %}" style="font-size:24px;">
+          Back to furniture list
+        </a>
+    </div>
+{% endblock %}

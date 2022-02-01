@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Furniture list
+{% endblock %}
+
+{% block body %}
+    <div class="furniture-list">
+        <ul>
+            {% for item in furniture_list %}
+                <li>
+                    {{ item }}
+
+                    <a href="{% url 'furniture:furniture_material' item.id%}" style="margin-left: 40px;">
+                        Материал
+                    </a>
+                    <a href="{% url 'furniture:supplier' item.id%}" style="margin-left: 40px;">
+                        Поставщик
+                    </a>
+                    <a href="{% url 'furniture:furniture_update' item.id %}" style="margin-left: 40px;">
+                        Update
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Material detail
+{% endblock %}
+
+{% block body %}
+    <h3>Информация по материалу</h3>
+    <div class="detail-list">
+        <ul>
+                <li>
+                  {{ furniturematerial.material }}
+                </li>
+        </ul>
+        <a href="{% url 'furniture:list' %}">
+          Back to furniture list
+        </a>
+    </div>
+{% endblock %}
