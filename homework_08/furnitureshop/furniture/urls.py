@@ -1,8 +1,6 @@
 from django.urls import path
 from django.contrib import admin
-from django.views.generic import TemplateView
 
-import furniture.models
 import furniture.views as furnitures
 
 
@@ -23,16 +21,5 @@ urlpatterns = [
     path('furniture/material_detail/<int:pk>/',
          furnitures.FurnitureMaterialDetailView.as_view(template_name="furniture/material_detail.html"),
          name='furniture_material'),
-    # path('animals/create/',
-    #      animals.AnimalKindCreateView.as_view(),
-    #      name='animalkind_create'),
-    # path('animals/update/<int:item_pk>/',
-    #      animals.AnimalKindUpdateView.as_view(),
-    #      name='animalkind_update'),
-    #
-    # # path('about/', animals.about, name='about'),
-    # path('about/',
-    #      TemplateView.as_view(template_name='animals/about.html'),
-    #      name='about'),
 ]
 
