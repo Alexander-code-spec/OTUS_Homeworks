@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Furniture detail
+{% endblock %}
+
+{% block content %}
+    <div class="product-detail">
+    <img src="{% if furniture.image %}{{ furniture.image.url }}{%else %}{% static 'img/no_image.png' %}{% endif %}" width="250" height="450">
+    <h1>{{ furniture.name }}</h1>
+    <h2>
+    <a href="{{ furniture.category.get_absolute_url }}">{{furniture.category.name }}</a>
+    </h2>
+    <p class="price">Р{{ furniture.price }}</p>
+    {{ furniture.description|linebreaks }}
+    </div>
+    <form action="{% url 'cart:cart_add' furniture.id %}" method="post">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Добавить в корзину">
+    </form>
+{% endblock %}

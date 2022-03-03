@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Корзина
+{% endblock %}
+{% block content %}
+    <h1>Корзина</h1>
+    <table class="cart">
+        <thead>
+        <tr>
+            <th>Фото</th>
+            <th>Твар</th>
+            <th>Кол-во</th>
+            <th>Удалить</th>
+            <th>Общая</th>
+            <th>Цена 1 ед.</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+            {% with product=item.product %}
+                <tr>
+                    <td>
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="
+                                {% if product.image %}
+                                    {{ product.image.url }}
+                                {% else %}
+                                    {% static 'img/no_image.png' %}
+                                {% endif %}">
+                        </a>
+                    </td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><a href="{% url 'cart:cart_remove' product.id%}">Удалить</a></td>
+                    <td class="num">{{ item.price }}</td>
+                    <td class="num">{{ item.total_price }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+        <tr class="total">
+            <td>Total</td>
+            <td colspan="4"></td>
+            <td class="num">Р{{ cart.get_total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url 'furniture:furniture_list' %}" class="button light">К списку товаров</a>
+        <a href="{% url 'order:order_create' %}" class="button">
+        Оформить заказ
+        </a>
+    </p>
+{% endblock %}

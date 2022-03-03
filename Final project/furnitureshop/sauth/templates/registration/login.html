@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+ <div class="login-form row justify-content-center align-items-center">
+     <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="login">
+        <a href='{% url 'user:user_create' %}'>Регитсрация</a>
+    </form>
+</div>
+</body>
+</html>

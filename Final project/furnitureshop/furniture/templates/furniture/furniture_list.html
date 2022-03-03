@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Все товары{% endif %}
+{% endblock %}
+{% block content %}
+    <div id="sidebar">
+        <h3>Категории товара</h3>
+        <ul>
+            <li {% if not category %}class="selected"{% endif %}>
+            <a href="{% url 'furniture:furniture_list' %}">Все</a>
+            </li>
+            {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="main1" class="product-list">
+        <h1>{% if category %}{{ category.name }}{% else %}Все товары{% endif %}</h1>
+        {% for furniture in furnitures %}
+            <div class="item">
+                <a href="{{ furniture.get_absolute_url }}">
+                    <img src="{% if furniture.image %}{{ furniture.image.url }}{%else %}{% static 'img/no_image.png' %}{% endif %}" width="250" height="300">
+                </a>
+                <br>
+                <a href="{{ furniture.get_absolute_url }}">{{ furniture.name }}</a>
+                <br>
+                {{ furniture.price }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
